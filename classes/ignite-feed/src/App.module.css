@@ -1,0 +1,12 @@
+.wrapper {
+    max-width: 70rem;
+	margin: 2rem auto; /* centralizado */
+	padding: 0 1rem;
+	display: grid;
+	grid-template-columns: 256px 1fr; 
+    /* 2 colunas: 1a sidebar, 2a posts. 2a coluna com 1fr - tamanho flexivel */
+	gap: 2rem; /* espaçamento entre as colunas */
+	align-items: flex-start; 
+    /* default strech, deixando as duas áreas com o mesmo tamanho
+    flex-start faz as duas áreas iniciarem no topo */
+}

@@ -1,0 +1,68 @@
+.sidebar {
+    background: var(--gray-800);
+    border-radius: 8px;
+    overflow: hidden;
+    /* elementos da sidebar ocupando somente o tamanho do container Sidebar. sem vazar */
+}
+
+.cover {
+    width: 100%; 
+    height: 72px; 
+    object-fit: cover; 
+    /* não distorcer a imagem, ocupando toda a largura do componente e cortando as partes necessarias */
+}
+
+.profile {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; /* horizontal */
+
+    margin-top: calc(0rem - 1.5rem - 6px); /* 1.5 - metade de 3rem, height da img. 6px - metade de 12px - bordas */
+
+}
+
+.avatar {
+    width: 3rem; 
+    height: 3rem; 
+    border-radius: 8px; /* sempre em px, o arredondamento é o mesmo, independente do tamanho da fonte/tela */
+    border: 4px solid var(--gray-800); 
+    outline: 2px solid var(--green-500); 
+    box-sizing: initial; /* as bordas, padding, ocupam um espaço a mais na imagem e não comprimem espremendo o elemento */
+    /*
+    2a alternativa seriam calcular o width somando o total das bordas
+    calc(3rem + 12px); 
+    */
+}
+
+.profile strong {
+    margin-top: 1rem; 
+    color: var(--gray-100); 
+    line-height: 1.6;
+}
+
+.profile span {
+    font-size: 0.875rem; 
+    color: var(--gray-400); 
+    line-height: 1.6;
+}
+
+.sidebar footer {
+    border-top: 1px solid var(--gray-600); 
+    margin-top: 1.5rem; 
+    padding: 1.5rem 2rem 2rem; /* acima, laterais, abaixo */
+}
+
+.sidebar footer a {
+    width: 100%; 
+    background: transparent; 
+    color: var(--green-500); 
+    border: 1px solid var(--green-500); 
+    border-radius: 8px; 
+    height: 50px; 
+    padding: 0 1.5rem; 
+    font-weight: bold; 
+    text-decoration: none; 
+    display: flex; 
+    align-items: center; /* horizontal */
+    justify-content: center; /* vertical */
+}

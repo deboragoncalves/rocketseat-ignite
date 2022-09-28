@@ -4,6 +4,11 @@
     padding: 2.5rem;
 }
 
+/*
+    .post + .post: estiliza todo o elemento que estiver com a classe .post e que tiver
+    algum elemento anterior a ele também com a classe .post.
+*/
+
 .post + .post {
     margin-top: 2rem;
 }
@@ -28,6 +33,13 @@
     color: var(--green-300);
 }
 
+/* 
+    .post header: vai estilizar todos os elementos header que estiverem dentro do article (com classe 
+.post, independente do nível em que estejam
+    .post > header: estiliza apenas o elemento header que estiver no primeiro nível,
+    ou seja, logo depois do article (diretamente como filho)
+*/
+
 .post > header {
     display: flex;
     align-items: center;
@@ -46,7 +58,7 @@
 }
 
 .author img {
-    width: 3rem; 
+    width: 3rem; /* 1rem: 16px */
     height: 3rem; 
     border-radius: 8px; 
     border: 4px solid var(--gray-800); 
@@ -57,6 +69,10 @@
 .authorInfo {
     display: flex;
     flex-direction: column;
+    /*
+        elementos HTML como span e strong tem por padrão display inline. geralmente são exibidos
+        lado a lado. se tiver que ser em coluna, usar flexbox
+    */
 }
 
 .authorInfo strong {
@@ -70,14 +86,68 @@
     font-size: 0.875rem;
 }
 
-/*
-    - 1rem: 16px
-    - .post header: vai estilizar todos os elementos header que estiverem dentro do article (com classe 
-    .post, independente do nível em que estejam
-    - .post > header: estiliza apenas o elemento header que estiver no primeiro nível,
-    ou seja, logo depois do article (diretamente como filho)
-    - .post + .post: estiliza todo o elemento que estiver com a classe .post e que tiver
-    algum elemento anterior a ele também com a classe .post.
-    - elementos HTML como span e strong tem por padrão display inline. geralmente são exibidos
-    lado a lado. se tiver que ser em coluna, usar flexbox
+.commentForm {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--gray-600);
+}
+
+.commentForm > strong {
+    line-height: 1.6;
+    color: var(--gray-100);
+}
+
+.commentForm > textArea {
+    width: 100%;
+    height: 6rem;
+    padding: 1rem;
+    border-radius: 8px;
+    color: var(--gray-100);
+    margin-top: 1rem;
+    line-height: 1.4;
+    background: var(--gray-900);
+    border: 0;
+    resize: none; /* não permitir que o usuário redimensione */
+}
+
+/* 
+    - visibility hidden esconde o elemento mas as dimensões desse elemento continuam presentes na tela
+    - uma alternativa a isso seria o display none
+    - outra seria envolver o elemento com uma tag footer e aplicar o visibility nessa tag pai
 */
+
+.commentForm > footer {
+    visibility: hidden; /* aparecer apenas quando o usuário digita */
+    max-height: 0;
+}
+
+/*
+    :focus-within altera o footer para visivel quando qualquer elemento dentro da div com class
+    .commentForm está em foco (através do tab ou outro)
+*/
+
+.commentForm:focus-within footer {
+    visibility: visible;
+    max-height: none;
+}
+
+/*
+    seletor css também aceita o type do botão entre []
+*/
+
+.commentForm > footer > button[type=submit] {
+    padding: 1rem 1.5rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    border: 0;
+    background: var(--green-500);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+.commentForm > footer > button[type=submit]:hover {
+    background: var(--green-300);
+}

@@ -1,5 +1,7 @@
 import styles from './Post.module.css';
 
+import { Comment } from './Comment.jsx';
+
 export function Post() {
     /* 
         - No HTML, atributo com nome composto é separado por hifen, já no React o padrão é camelCase
@@ -32,6 +34,12 @@ export function Post() {
                     <button type="submit">Publicar</button>
                 </footer>
             </form>
+
+            <div className={styles.commentList}>
+                <Comment />
+                <Comment />
+                <Comment />
+            </div>
         </article>
     )
 }
